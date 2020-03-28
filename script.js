@@ -17,13 +17,13 @@ function writePassword() {
 
 }
 
+
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
 
 //need to make a generatePassword function
 function generatePassword() {
-  // console.log("hello");
-  // make a confirm to start user through the process
+  
   var criteria = confirm("Press ok to start choosing your password criteria");
   // var numbers = [1,2,3,4,5,6,7,8,9,0]
 
@@ -38,74 +38,46 @@ function generatePassword() {
       passLength = parseInt(passLength);
       console.log(passLength);
       //ask if they want uppercase
-      var letterTypes = confirm("Would you like Uppercase Letters?");
-      //if so, 
+      var questions = [
 
-      if (letterTypes === true) {
-        // console.log("I want uppercase letters");
-        //ask if they also want lowercase
-        var lowerLetter = confirm("Would you like lowercase letters?");
-        //if so, 
-        if (lowerLetter === true) {
-          //ask if they want special characters
-          var specialChar1 = confirm("Would you like special characters?");
-          //if so
-          if (specialChar1 === true) {
-            //if so, ask if they want numbers
-            var nums1 = confirm("Would you like numbers?");
-            // console.log("upper, lower, and special")
-            if (nums1 === true) {
-              //GET PASSWORD 
-              console.log("uppercase, lower, special, and numbers");
-            } else {
-              //GET PASSWORD WITHOUT NUMBERS
-              console.log("uppercase, lower, special and NO numbers");
-            }
-          } else {
-            var nums6 = confirm("Would you like numbers?");
-            if (nums6 === true) {
-              console.log("password numbers and no special");
-            } else {
-              console.log("password no numbers")
-            }
-          }
-        } else {
-          var specialChar3 = confirm("Would you like special characters?");
-          //if so
-          if (specialChar3 === true) {
-            //if so, ask if they want numbers
-            var nums4 = confirm("Would you like numbers?");
-            // console.log("upper, lower, and special")
-            if (nums4 === true) {
-              console.log("uppercase, lower, special, and numbers");
-            } else {
-              console.log("uppercase, lower, special, NO numbers");
-            }
-
-          } else {
-            var nums7 = confirm("Would you like numbers?");
-            if (nums7 === true) {
-              console.log("uppercase, lower, no special, numbers");
-            } else {
-              console.log("uppercase, lower, no special, no numbers");
-            }
-          }
-        }
-
-        //if they don't want uppercase
-      } else {
-        //ask if they want special characters
-        var specialChar2 = confirm("Would you like special characters?");
-        if (specialChar2 === true) {
-          var nums3 = confirm("Would you like numbers?");
-          if (nums3 === true) {
-            console.log("lowercase and numbers");
-          } else {
-            console.log("no upper, lowercase, no special, no numbers")
-          }
-
+        {
+          q: "Would you like uppercase letters?",
+          a: true,
+          b: false
+        },
+        {
+          q: "Would you like lowercase letters?",
+          a: true,
+          b: false
+        },
+      
+        {
+          q: "Would you like special characters?",
+          a: true,
+          b: false
+        },
+      
+        {
+          q: "Would you like numbers?",
+          a: true,
+          b: false
+        },
+      
+      ]
+     
+      var answers = [];
+      
+      for(var i=0; i<questions.length;i++){
+        var result = confirm(questions[i].q);
+        if (result == questions[i].a){
+          answers.push(result);
+          console.log(answers);
+        }else if (result == questions[i].b) {
+          answers.push(result);
+          console.log(answers);
         }
       }
+     
     } else {
       alert("You must enter a number between 8 and 128. Press 'Generate Password' to restart");
     }
@@ -115,3 +87,10 @@ function generatePassword() {
     alert("You shall not pass.....word.")
   }
 }
+
+function determinePassword () {
+
+  
+}
+
+
