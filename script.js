@@ -17,6 +17,11 @@ function writePassword() {
 
 }
 
+var answers = [];
+var upperCase = "A B C D E F G H I J K L M N O P Q R S T U V W X Y Z".split(" ");
+var lowerCase = "a b c d e f g h i j k l m n o p q r s t u v w x y z".split(" ");
+var numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0];
+var special = ["!", "@", "#", "$", "%", "&"];
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
@@ -25,7 +30,6 @@ generateBtn.addEventListener("click", writePassword);
 function generatePassword() {
   
   var criteria = confirm("Press ok to start choosing your password criteria");
-  // var numbers = [1,2,3,4,5,6,7,8,9,0]
 
   //if they select "ok", they can input password length
   if (criteria === true) {
@@ -36,8 +40,13 @@ function generatePassword() {
     if ((passLength >= 8) && (passLength <= 128)) {
       //if their input is between 8 & 128, then they get the next question.
       passLength = parseInt(passLength);
+      //need to store length specified to determine password length
+     
+
+    
       console.log(passLength);
-      //ask if they want uppercase
+
+      //object containing questions and possible answers
       var questions = [
 
         {
@@ -65,7 +74,7 @@ function generatePassword() {
       
       ]
      
-      var answers = [];
+      // var answers = [];
       
       for(var i=0; i<questions.length;i++){
         var result = confirm(questions[i].q);
@@ -75,6 +84,7 @@ function generatePassword() {
         }else if (result == questions[i].b) {
           answers.push(result);
           console.log(answers);
+
         }
       }
      
@@ -88,9 +98,5 @@ function generatePassword() {
   }
 }
 
-function determinePassword () {
-
-  
-}
 
 
